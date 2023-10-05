@@ -3,6 +3,10 @@ main = "src/index.ts"
 compatibility_date = "2023-09-22"
 workers_dev = true
 
+kv_namespaces = [
+  { binding = "SHORT_LINKS", id = "f5e1d52045894717b23945ce441dcab9" }
+]
+
 # Variable bindings. These are arbitrary, plaintext strings (similar to environment variables)
 # Note: Use secrets to store sensitive data.
 # Docs: https://developers.cloudflare.com/workers/platform/environment-variables

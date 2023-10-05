@@ -27,11 +27,9 @@ export default {
 
       case '/proxy':
         return handleProxy.fetch(request, env, ctx);
-    }
 
-    if (url.pathname.startsWith('/api/')) {
-      // You can also use more robust routing
-      return apiRouter.handle(request);
+      default:
+        return apiRouter.handle(request, env, ctx);
     }
 
     return new Response(

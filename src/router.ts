@@ -1,4 +1,11 @@
-import { Router } from 'itty-router';
+import { Router, IRequest, withParams } from 'itty-router';
+
+// create a convenient duple
+type CF = [env: Env, context: ExecutionContext];
+
+type ShortLink = {
+  location: string;
+};
 
 // now let's create a router (note the lack of "new")
 const router = Router();
@@ -14,6 +21,18 @@ router.post('/api/todos', async (request) => {
   const content = await request.json();
 
   return new Response(`Creating Todo: ${JSON.stringify(content)}`);
+});
+
+router.get<IRequest, CF>('/sl/:slug', withParams, async ({ params }, env) => {
+  const shortLink = await env.SHORT_LINKS.get<ShortLink>(params.slug, {
+    type: 'json',
+  });
+
+  if (!shortLink) {
+    return new Response('Not Found.', { status: 404 });
+  }
+
+  return Response.redirect(shortLink.location, 302);
 });
 
 // 404 for everything else
