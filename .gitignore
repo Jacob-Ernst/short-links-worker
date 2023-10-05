@@ -203,3 +203,6 @@ dist
 *-lock.*
 *.lock
 !package-lock.json
+
+.task
+.wrangler

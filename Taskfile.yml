@@ -6,7 +6,38 @@ vars:
   GREETING: Hello, World!
 
 tasks:
-  default:
+  build:envrc:
+    desc: Generate direnv config from ".envrc.example".
     cmds:
-      - echo "{{.GREETING}}"
-    silent: true
+      - cat .envrc.example | sed -e 's/^# .*//' > .envrc
+      - sed -i "" '/^[[:space:]]*$$/d' .envrc
+      - sed -i "" '/^$/d' .envrc
+      - sed -i "" 's/^/export /' .envrc
+    sources:
+      - .envrc.example
+    generates:
+      - .envrc
+
+  dev:setup:
+    desc: Setup local environment and install dependencies.
+    run: once
+    cmds:
+      - task: npm:install
+
+  npm:install:
+    desc: Install node dependencies.
+    run: once
+    cmds:
+      - npm install
+    sources:
+      - package.json
+      - package-lock.json
+    generates:
+      - node_modules/**/*
+
+  start:
+    desc: Start local development server.
+    deps: [dev:setup]
+    interactive: true
+    cmds:
+      - npx wrangler dev
