@@ -21,6 +21,7 @@
     "itty-router": "^4.0.23",
     "lint-staged": "^14.0.1",
     "prettier": "^3.0.3",
+    "qrcode": "^1.5.3",
     "typescript": "^5.0.4",
     "wrangler": "^3.0.0"
   },
