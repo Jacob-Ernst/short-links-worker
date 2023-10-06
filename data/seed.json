@@ -4,6 +4,10 @@
     "value": "{\"location\":\"https://www.mcdonalds.com/us/en-us/full-menu.html\",\"overrides\":[{\"type\":\"timeOfDay\",\"condition\":\"morning\",\"location\":\"https://www.mcdonalds.com/us/en-us/full-menu/breakfast.html\"},{\"type\":\"timeOfDay\",\"condition\":\"day\",\"location\":\"https://www.mcdonalds.com/us/en-us/full-menu/breakfast.html\"},{\"type\":\"timeOfDay\",\"condition\":\"night\",\"location\":\"https://www.mcdonalds.com/us/en-us/full-menu/breakfast.html\"}]}"
   },
   {
+    "key": "TFUKxesS",
+    "value": "{\"location\":\"https://www.mcdonalds.com/us/en-us/full-menu.html\",\"overrides\":[{\"type\":\"timeOfDay\",\"condition\":\"morning\",\"location\":\"https://www.mcdonalds.com/us/en-us/full-menu/breakfast.html\"},{\"type\":\"timeOfDay\",\"condition\":\"day\",\"location\":\"https://www.mcdonalds.com/us/en-us/full-menu/burgers.html\"},{\"type\":\"timeOfDay\",\"condition\":\"night\",\"location\":\"https://www.mcdonalds.com/us/en-us/full-menu/sweets-treats.html\"}]}"
+  },
+  {
     "key": "q12pwzO",
     "value": "{\"location\":\"https://www.mcdonalds.com/us/en-us/full-menu.html\",\"overrides\":[{\"type\":\"timeOfDay\",\"condition\":\"morning\",\"location\":\"https://www.mcdonalds.com/us/en-us/full-menu/breakfast.html\"}]}"
   },
