@@ -1,0 +1,14 @@
+[
+  {
+    "key": "ba6a_Jnm",
+    "value": "{\"location\":\"https://www.mcdonalds.com/us/en-us/full-menu.html\",\"overrides\":[{\"type\":\"timeOfDay\",\"condition\":\"morning\",\"location\":\"https://www.mcdonalds.com/us/en-us/full-menu/breakfast.html\"},{\"type\":\"timeOfDay\",\"condition\":\"day\",\"location\":\"https://www.mcdonalds.com/us/en-us/full-menu/breakfast.html\"},{\"type\":\"timeOfDay\",\"condition\":\"night\",\"location\":\"https://www.mcdonalds.com/us/en-us/full-menu/breakfast.html\"}]}"
+  },
+  {
+    "key": "q12pwzO",
+    "value": "{\"location\":\"https://www.mcdonalds.com/us/en-us/full-menu.html\",\"overrides\":[{\"type\":\"timeOfDay\",\"condition\":\"morning\",\"location\":\"https://www.mcdonalds.com/us/en-us/full-menu/breakfast.html\"}]}"
+  },
+  {
+    "key": "l_ZmMjbi",
+    "value": "{\"location\":\"https://www.google.com/\"}"
+  }
+]

@@ -23,6 +23,7 @@ tasks:
     run: once
     cmds:
       - task: npm:install
+      - task: seed
 
   npm:install:
     desc: Install node dependencies.
@@ -34,6 +35,14 @@ tasks:
       - package-lock.json
     generates:
       - node_modules/**/*
+
+  seed:
+    desc: Upload seed data to local KV.
+    run: once
+    cmds:
+      - npx wrangler kv:bulk put --binding=SHORT_LINKS --local data/seed.json
+    sources:
+      - data/seed.json
 
   start:
     desc: Start local development server.
