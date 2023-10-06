@@ -1,11 +1,13 @@
+// == External =============================================================
 import { Router, IRequest, withParams } from 'itty-router';
+
+// == Internal =============================================================
+import handleOverrides from './overrides';
+
+// == Static ===============================================================
 
 // create a convenient duple
 type CF = [env: Env, context: ExecutionContext];
-
-type ShortLink = {
-  location: string;
-};
 
 // now let's create a router (note the lack of "new")
 const router = Router();
@@ -23,13 +25,18 @@ router.post('/api/todos', async (request) => {
   return new Response(`Creating Todo: ${JSON.stringify(content)}`);
 });
 
-router.get<IRequest, CF>('/sl/:slug', withParams, async ({ params }, env) => {
-  const shortLink = await env.SHORT_LINKS.get<ShortLink>(params.slug, {
+router.get<IRequest, CF>('/sl/:slug', withParams, async (request, env) => {
+  const shortLink = await env.SHORT_LINKS.get<ShortLink>(request.params.slug, {
     type: 'json',
   });
 
   if (!shortLink) {
     return new Response('Not Found.', { status: 404 });
+  }
+
+  const override = handleOverrides(request, shortLink.overrides || []);
+  if (override) {
+    return override;
   }
 
   return Response.redirect(shortLink.location, 302);
