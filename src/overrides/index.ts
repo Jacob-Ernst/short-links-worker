@@ -6,7 +6,7 @@ import handleTimeOfDay from './time-of-day';
 
 // == Static ===============================================================
 
-export type OverrideHandler = (request: IRequest, override: OverrideType) => Response | undefined;
+type OverrideHandler = (request: IRequest, override: OverrideType) => Response | undefined;
 
 type handlersType = {
   [i: string]: OverrideHandler;

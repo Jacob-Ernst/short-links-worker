@@ -9,6 +9,9 @@ const timesOfDay: timesOfDayType = {
   night: [19, 20, 21, 22, 23, 0, 1, 2],
 };
 
+/**
+ * Get the current hour in the given timezone.
+ */
 function getLocalHour(timezone: string): number {
   const localized_date = new Date(new Date().toLocaleString('en-US', { timeZone: timezone }));
   return localized_date.getHours();
@@ -22,6 +25,11 @@ function timeMatches(timezone: string, condition: string): boolean {
   return timeRange.includes(hour);
 }
 
+/**
+ * Return response if current local hour matches the override condition.
+ *
+ * @returns A redirect response or undefined.
+ */
 function handleTimeOfDay(request: IRequest, override: OverrideType) {
   const timezone = request?.cf?.timezone as string | undefined;
   if (!timezone) {
