@@ -3,6 +3,7 @@ import { Router, IRequest, withParams } from 'itty-router';
 
 // == Internal =============================================================
 import handleOverrides from './overrides';
+import qrCodeTemplate from './qr-code-template';
 
 // == Static ===============================================================
 
@@ -22,6 +23,19 @@ async function withShortLink(request: IRequest, env: Env) {
   }
   request.shortLink = shortLink;
 }
+
+// GET QR Code for a short-link.
+router.get<IRequest, CF>('/:slug/qr-code', withParams, withShortLink, async (request) => {
+  const { slug } = request.params;
+  try {
+    const html = await qrCodeTemplate(slug, request.url);
+    return new Response(html, { headers: { 'Content-Type': 'text/html' } });
+  } catch (err) {
+    // eslint-disable-next-line no-console
+    console.error(err);
+    return new Response('Could not generate QR Code', { status: 500 });
+  }
+});
 
 // GET short-link and redirect.
 router.get<IRequest, CF>('/:slug', withParams, withShortLink, async (request) => {

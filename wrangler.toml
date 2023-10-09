@@ -2,6 +2,7 @@ name = "short-links-worker"
 main = "src/index.ts"
 compatibility_date = "2023-09-22"
 workers_dev = true
+compatibility_flags = [ "nodejs_compat" ]
 
 kv_namespaces = [
   { binding = "SHORT_LINKS", id = "f5e1d52045894717b23945ce441dcab9" }
