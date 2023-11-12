@@ -1,4 +1,9 @@
-import { IRequest } from 'itty-router';
+// == External =============================================================
+
+// == Internal =============================================================
+import { OverrideRequest } from './index';
+
+// == Static ===============================================================
 
 type timesOfDayType = {
   [i: string]: number[] | undefined;
@@ -30,7 +35,7 @@ function timeMatches(timezone: string, condition: string): boolean {
  *
  * @returns A redirect response or undefined.
  */
-function handleTimeOfDay(request: IRequest, override: OverrideType) {
+function handleTimeOfDay(request: OverrideRequest, override: OverrideType) {
   const timezone = request?.cf?.timezone as string | undefined;
   if (!timezone) {
     return;
