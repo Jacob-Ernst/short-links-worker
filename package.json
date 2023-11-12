@@ -8,7 +8,8 @@
     "format:js": "eslint --cache --cache-strategy content --fix",
     "lint:js": "eslint --cache --cache-strategy content",
     "start": "wrangler dev",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "test": "vitest"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20230419.0",
@@ -24,6 +25,7 @@
     "prettier": "^3.0.3",
     "qrcode": "^1.5.3",
     "typescript": "^5.0.4",
+    "vitest": "^0.34.6",
     "wrangler": "^3.0.0"
   },
   "lint-staged": {
